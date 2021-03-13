@@ -1,0 +1,14 @@
+git:4.6.0
+git-client:3.6.0
+matrix-auth:2.6.5
+job-dsl:1.77
+configuration-as-code:1.47
+configuration-as-code-groovy:1.1
+cloudbees-folder:6.15
+ssh-credentials:1.18.1
+credentials:2.3.15
+workflow-aggregator:2.6
+timestamper:1.11.8
+workflow-cps:2.90
+greenballs:1.15.1
+ansicolor:0.7.5

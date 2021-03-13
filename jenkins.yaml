@@ -1,0 +1,62 @@
+jenkins:
+  numExecutors: 3
+  mode: NORMAL
+  scmCheckoutRetryCount: 2
+  labelString: "master-label"
+
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          password: ${JENKINS_USER_ADMIN_PASSWORD}
+        - id: dev
+          password: ${JENKINS_USER_DEV_PASSWORD}
+
+  authorizationStrategy:
+    projectMatrix:
+      permissions:
+        - "View/Delete:dev"
+        - "View/Read:dev"
+        - "View/Configure:dev"
+        - "View/Create:dev"
+        - "Job/Read:dev"
+        - "Job/Build:dev"
+        - "Job/Configure:dev"
+        - "Job/Create:dev"
+        - "Job/Delete:dev"
+        - "Job/Discover:dev"
+        - "Job/Move:dev"
+        - "Job/Workspace:dev"
+        - "Job/Cancel:dev"
+        - "Run/Delete:dev"
+        - "Run/Replay:dev"
+        - "Run/Update:dev"
+        - "SCM/Tag:dev"
+        - "Credentials/View:dev"
+        - "Overall/Read:dev"
+        - "Overall/Administer:admin"
+
+  crumbIssuer: "standard"
+unclassified:
+  gitscm:
+    globalConfigName: jenkins
+    globalConfigEmail: jenkins@domain.local
+jobs:
+  - script: >
+      job('seed-job') {
+        scm {
+          git {
+            remote {
+              url('https://github.com/anuj13mathur/jenkins-casc.git')
+            }
+            branch('*/main')
+          }
+        }
+        steps {
+          dsl {
+            external('pipelines.groovy')
+            removeAction('DELETE')
+          }
+        }
+      }
