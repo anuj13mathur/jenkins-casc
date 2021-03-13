@@ -8,9 +8,9 @@ pipelineDetails = [
                 pipelineRelativePath: "Jenkinsfile"
         ],
         [
-                name                : "customer-service",
+                name                : "shipping-service",
                 namespace           : "services",
-                repo                : "https://github.com/anuj13mathur/customer-service.git",
+                repo                : "https://github.com/anuj13mathur/shipping-service.git",
                 branch              : "main",
                 pipelineRelativePath: "Jenkinsfile"
         ],
