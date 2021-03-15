@@ -20,6 +20,13 @@ pipelineDetails = [
                 repo                : "https://github.com/anuj13mathur/order-worker.git",
                 branch              : "main",
                 pipelineRelativePath: "Jenkinsfile"
+        ],
+        [
+                name                : "billing-service",
+                namespace           : "services",
+                repo                : "https://github.com/anuj13mathur/billing-service.git",
+                branch              : "main",
+                pipelineRelativePath: "Jenkinsfile"
         ]
 ]
 namespaces.each {
