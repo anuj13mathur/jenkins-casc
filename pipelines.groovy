@@ -1,4 +1,4 @@
-namespaces = ['services, services/order']
+namespaces = ['services', 'services/order']
 pipelineDetails = [
         [
                 name                : "order-service",
