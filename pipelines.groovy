@@ -1,8 +1,8 @@
-namespaces = ['services']
+namespaces = ['services, services/order']
 pipelineDetails = [
         [
                 name                : "order-service",
-                namespace           : "services",
+                namespace           : "services/order",
                 repo                : "https://github.com/anuj13mathur/order-service.git",
                 branch              : "main",
                 pipelineRelativePath: "Jenkinsfile"
@@ -15,9 +15,9 @@ pipelineDetails = [
                 pipelineRelativePath: "Jenkinsfile"
         ],
         [
-                name                : "billing-service",
-                namespace           : "services",
-                repo                : "https://github.com/anuj13mathur/billing-service.git",
+                name                : "order-worker",
+                namespace           : "services/order",
+                repo                : "https://github.com/anuj13mathur/order-worker.git",
                 branch              : "main",
                 pipelineRelativePath: "Jenkinsfile"
         ]
